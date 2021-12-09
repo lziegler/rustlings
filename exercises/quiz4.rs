@@ -5,7 +5,12 @@
 
 // Write a macro that passes the quiz! No hints this time, you can do it!
 
-// I AM NOT DONE
+macro_rules! my_macro {
+    ($val:expr) => {
+        concat!("Hello ", $val);
+        //format!("Hello {}", $val); // formats string at runtime
+    };
+}
 
 #[cfg(test)]
 mod tests {
