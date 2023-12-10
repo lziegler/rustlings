@@ -43,7 +43,7 @@ impl State {
 
     fn process(&mut self, message: Message) {
         match message {
-            Message::ChangeColor(c) => self.change_color(c),
+            Message::ChangeColor((r, g, b)) => self.change_color((r, g, b)),
             Message::Echo(s) => self.echo(s),
             Message::Move(p) => self.move_position(p),
             Message::Quit => self.quit(),
@@ -65,7 +65,7 @@ mod tests {
             color: (0, 0, 0),
             message: "hello world".to_string(),
         };
-        state.process(Message::ChangeColor(255, 0, 255));
+        state.process(Message::ChangeColor((255, 0, 255)));
         state.process(Message::Echo(String::from("Hello world!")));
         state.process(Message::Move(Point { x: 10, y: 15 }));
         state.process(Message::Quit);
